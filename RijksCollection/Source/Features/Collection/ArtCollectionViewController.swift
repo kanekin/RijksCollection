@@ -9,13 +9,37 @@ import UIKit
 
 @MainActor
 protocol ArtCollectionView: AnyObject {
-    func update(artObjects: [Model.Collection.ArtObject])
+    func updateView(_ newArtObjects: [Model.Collection.ArtObject])
 }
 
 @MainActor
 class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     private let presenter: ArtCollectionPresenter
+    
+    private lazy var artCollectionView: ArtCollectionSubview = {
+        let view = ArtCollectionSubview(
+            loadMore: { [weak self] in
+                Task { [weak self] in
+                    await self?.presenter.load()
+                }
+            },
+            didSelectItem: { artObject in
+                // TODO: implement navigation
+            }
+        )
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var layoutConstraints: [NSLayoutConstraint] = {
+        return [
+            view.leadingAnchor.constraint(equalTo: artCollectionView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: artCollectionView.trailingAnchor),
+            view.topAnchor.constraint(equalTo: artCollectionView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: artCollectionView.bottomAnchor),
+        ]
+    }()
     
     init(presenter: ArtCollectionPresenter) {
         self.presenter = presenter
@@ -28,11 +52,18 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.attachView(self)
+        view.addSubview(artCollectionView)
+        NSLayoutConstraint.activate(layoutConstraints)
+        Task {
+            await presenter.attachView(self)
+            await presenter.load(resetPageCount: true)
+        }
+
     }
 
-    func update(artObjects: [Model.Collection.ArtObject]) {
-        print(artObjects)
+    func updateView(_ newArtObjects: [Model.Collection.ArtObject]) {
+        print("updatedView")
+        artCollectionView.updateView(newArtObjects: newArtObjects)
     }
 }
 

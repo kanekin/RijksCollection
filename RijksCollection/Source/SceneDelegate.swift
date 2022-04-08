@@ -16,8 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 //        let vc = PlaceholderViewController()
-        let vc = ArtDetailsViewController(presenter: dependencies.makeArtDetailsPresenter(objectNumber: "SK-C-5"))
-//        let vc = ArtCollectionViewController(presenter: dependencies.makeArtCollectionPresenter())
+//        let vc = ArtDetailsViewController(presenter: dependencies.makeArtDetailsPresenter(objectNumber: "SK-C-5"))
+        let vc = ArtCollectionViewController(presenter: dependencies.makeArtCollectionPresenter())
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }

@@ -24,7 +24,18 @@ extension Model.Collection {
         let objectNumber: String
         let title: String
         let hasImage: Bool
-        let headerImage: RijksImage?
+        let webImage: RijksImage?
+        let principalOrFirstMaker: String?
+    }
+}
+
+extension Model.Collection.ArtObject: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(objectNumber)
+    }
+    
+    static func == (lhs: Model.Collection.ArtObject, rhs: Model.Collection.ArtObject) -> Bool {
+        return lhs.objectNumber == rhs.objectNumber
     }
 }
 

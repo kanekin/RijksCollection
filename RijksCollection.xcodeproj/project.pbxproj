@@ -11,6 +11,10 @@
 		2305EFDB280066640079B5F9 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */; };
 		2305EFDD28006B100079B5F9 /* ArtDetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */; };
 		2305EFDF28006E220079B5F9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDE28006E220079B5F9 /* ErrorView.swift */; };
+		2305EFE128007A2E0079B5F9 /* ArtCollectionSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE028007A2E0079B5F9 /* ArtCollectionSubview.swift */; };
+		2305EFE3280080630079B5F9 /* ArtCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */; };
+		2305EFE52803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */; };
+		2305EFE7280307980079B5F9 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE6280307980079B5F9 /* UICollectionReusableView+Extension.swift */; };
 		231ADF3F27FC776500227998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF3E27FC776500227998 /* AppDelegate.swift */; };
 		231ADF4127FC776500227998 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4027FC776500227998 /* SceneDelegate.swift */; };
 		231ADF4327FC776500227998 /* ArtCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4227FC776500227998 /* ArtCollectionViewController.swift */; };
@@ -56,6 +60,10 @@
 		2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsScrollView.swift; sourceTree = "<group>"; };
 		2305EFDE28006E220079B5F9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		2305EFE028007A2E0079B5F9 /* ArtCollectionSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionSubview.swift; sourceTree = "<group>"; };
+		2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionViewCell.swift; sourceTree = "<group>"; };
+		2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
+		2305EFE6280307980079B5F9 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
 		231ADF3B27FC776500227998 /* RijksCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RijksCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231ADF3E27FC776500227998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		231ADF4027FC776500227998 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +179,10 @@
 			isa = PBXGroup;
 			children = (
 				231ADF4227FC776500227998 /* ArtCollectionViewController.swift */,
+				2305EFE028007A2E0079B5F9 /* ArtCollectionSubview.swift */,
 				231ADF8827FC846F00227998 /* ArtCollectionPresenter.swift */,
+				2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */,
+				2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -223,6 +234,7 @@
 				231ADF8627FC83B500227998 /* Logger+Extension.swift */,
 				23EFD92328003E7400C0D4AD /* UIStackView+Extension.swift */,
 				23EFD92528003E9800C0D4AD /* UIView+Extension.swift */,
+				2305EFE6280307980079B5F9 /* UICollectionReusableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -372,6 +384,7 @@
 				231ADF7027FC784A00227998 /* Dependencies.swift in Sources */,
 				231ADF8927FC846F00227998 /* ArtCollectionPresenter.swift in Sources */,
 				231ADF8727FC83B500227998 /* Logger+Extension.swift in Sources */,
+				2305EFE128007A2E0079B5F9 /* ArtCollectionSubview.swift in Sources */,
 				231ADF7727FC794B00227998 /* Collection.swift in Sources */,
 				231ADF7927FC7B0300227998 /* ApiConstants.swift in Sources */,
 				23AA662A27FEDAA500A28F96 /* ArtDetailsViewController.swift in Sources */,
@@ -383,11 +396,14 @@
 				231ADF7E27FC7D4300227998 /* URLRequest+curl.swift in Sources */,
 				23EFD91C2800318B00C0D4AD /* ArtDetailsPresenter.swift in Sources */,
 				2305EFDD28006B100079B5F9 /* ArtDetailsScrollView.swift in Sources */,
+				2305EFE7280307980079B5F9 /* UICollectionReusableView+Extension.swift in Sources */,
 				23EFD92628003E9800C0D4AD /* UIView+Extension.swift in Sources */,
 				231ADF8127FC7E1700227998 /* NetworkError.swift in Sources */,
 				23EFD92228003B7200C0D4AD /* ImageLoader.swift in Sources */,
 				231ADF4127FC776500227998 /* SceneDelegate.swift in Sources */,
 				231ADF7B27FC7B1700227998 /* NetworkService.swift in Sources */,
+				2305EFE52803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift in Sources */,
+				2305EFE3280080630079B5F9 /* ArtCollectionViewCell.swift in Sources */,
 				2305EFD9280064CC0079B5F9 /* LoadingView.swift in Sources */,
 				231ADF8527FC7EED00227998 /* Endpoints.swift in Sources */,
 				2305EFDF28006E220079B5F9 /* ErrorView.swift in Sources */,
