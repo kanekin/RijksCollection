@@ -16,10 +16,21 @@ class Dependencies {
     private lazy var artCollectionLoader: ArtCollectionLoading = {
         return ArtCollectionLoader(networkService: networkService)
     }()
+    
+    private lazy var artDetailsLoader: ArtDetailsLoading = {
+        return ArtDetailsLoader(networkService: networkService)
+    }()
    
     func makeArtCollectionPresenter() -> ArtCollectionPresenter {
         return .init(
             loader: artCollectionLoader
+        )
+    }
+    
+    func makeArtDetailsPresenter(objectNumber: String) -> ArtDetailsPresenter {
+        return .init(
+            objectNumber: objectNumber,
+            loader: artDetailsLoader
         )
     }
 }

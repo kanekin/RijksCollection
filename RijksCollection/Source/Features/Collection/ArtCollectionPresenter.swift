@@ -14,7 +14,9 @@ class ArtCollectionPresenter {
     private var lastPageLoaded = 0
     private var artObjects: [Model.Collection.ArtObject] = [] {
         didSet {
-            view?.update(artObjects: artObjects)
+            Task {
+                await view?.update(artObjects: artObjects)
+            }
         }
     }
     
@@ -29,6 +31,7 @@ class ArtCollectionPresenter {
     func load() async {
         do {
             let collection = try await loader.getCollection(page: 0)
+            
             artObjects = collection.artObjects
         } catch {
             // Do error handling
@@ -53,6 +56,6 @@ class ArtCollectionLoader: ArtCollectionLoading {
     }
     
     func getCollection(page: Int) async throws -> Model.Collection {
-        return try await networkService.load(endpoint: Endpoints.getCollection(page: page))
+        return try await networkService.load(endpoint: .getCollection(page: page))
     }
 }

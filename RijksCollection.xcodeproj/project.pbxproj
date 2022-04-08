@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2305EFD9280064CC0079B5F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFD8280064CC0079B5F9 /* LoadingView.swift */; };
+		2305EFDB280066640079B5F9 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */; };
+		2305EFDD28006B100079B5F9 /* ArtDetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */; };
+		2305EFDF28006E220079B5F9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDE28006E220079B5F9 /* ErrorView.swift */; };
 		231ADF3F27FC776500227998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF3E27FC776500227998 /* AppDelegate.swift */; };
 		231ADF4127FC776500227998 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4027FC776500227998 /* SceneDelegate.swift */; };
 		231ADF4327FC776500227998 /* ArtCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4227FC776500227998 /* ArtCollectionViewController.swift */; };
@@ -23,6 +27,11 @@
 		231ADF8527FC7EED00227998 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF8427FC7EED00227998 /* Endpoints.swift */; };
 		231ADF8727FC83B500227998 /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF8627FC83B500227998 /* Logger+Extension.swift */; };
 		231ADF8927FC846F00227998 /* ArtCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF8827FC846F00227998 /* ArtCollectionPresenter.swift */; };
+		23AA662A27FEDAA500A28F96 /* ArtDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AA662927FEDAA500A28F96 /* ArtDetailsViewController.swift */; };
+		23EFD91C2800318B00C0D4AD /* ArtDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFD91B2800318B00C0D4AD /* ArtDetailsPresenter.swift */; };
+		23EFD92228003B7200C0D4AD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFD92128003B7200C0D4AD /* ImageLoader.swift */; };
+		23EFD92428003E7400C0D4AD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFD92328003E7400C0D4AD /* UIStackView+Extension.swift */; };
+		23EFD92628003E9800C0D4AD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFD92528003E9800C0D4AD /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2305EFD8280064CC0079B5F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsScrollView.swift; sourceTree = "<group>"; };
+		2305EFDE28006E220079B5F9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		231ADF3B27FC776500227998 /* RijksCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RijksCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231ADF3E27FC776500227998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		231ADF4027FC776500227998 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +76,11 @@
 		231ADF8427FC7EED00227998 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		231ADF8627FC83B500227998 /* Logger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extension.swift"; sourceTree = "<group>"; };
 		231ADF8827FC846F00227998 /* ArtCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionPresenter.swift; sourceTree = "<group>"; };
+		23AA662927FEDAA500A28F96 /* ArtDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsViewController.swift; sourceTree = "<group>"; };
+		23EFD91B2800318B00C0D4AD /* ArtDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsPresenter.swift; sourceTree = "<group>"; };
+		23EFD92128003B7200C0D4AD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		23EFD92328003E7400C0D4AD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		23EFD92528003E9800C0D4AD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2305EFD7280064C00079B5F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2305EFD8280064CC0079B5F9 /* LoadingView.swift */,
+				2305EFDE28006E220079B5F9 /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		231ADF3227FC776500227998 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +162,7 @@
 				231ADF7227FC786D00227998 /* Features */,
 				231ADF3E27FC776500227998 /* AppDelegate.swift */,
 				231ADF4027FC776500227998 /* SceneDelegate.swift */,
+				2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -160,10 +188,12 @@
 		231ADF7327FC787F00227998 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2305EFD7280064C00079B5F9 /* View */,
 				231ADF7F27FC7D7500227998 /* Network */,
 				231ADF7C27FC7D3100227998 /* Extension */,
 				231ADF7527FC793900227998 /* Model */,
 				231ADF6F27FC784A00227998 /* Dependencies.swift */,
+				23EFD92128003B7200C0D4AD /* ImageLoader.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -171,6 +201,9 @@
 		231ADF7427FC789400227998 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				23AA662927FEDAA500A28F96 /* ArtDetailsViewController.swift */,
+				2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */,
+				23EFD91B2800318B00C0D4AD /* ArtDetailsPresenter.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -188,6 +221,8 @@
 			children = (
 				231ADF7D27FC7D4300227998 /* URLRequest+curl.swift */,
 				231ADF8627FC83B500227998 /* Logger+Extension.swift */,
+				23EFD92328003E7400C0D4AD /* UIStackView+Extension.swift */,
+				23EFD92528003E9800C0D4AD /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -339,14 +374,23 @@
 				231ADF8727FC83B500227998 /* Logger+Extension.swift in Sources */,
 				231ADF7727FC794B00227998 /* Collection.swift in Sources */,
 				231ADF7927FC7B0300227998 /* ApiConstants.swift in Sources */,
+				23AA662A27FEDAA500A28F96 /* ArtDetailsViewController.swift in Sources */,
 				231ADF4327FC776500227998 /* ArtCollectionViewController.swift in Sources */,
+				23EFD92428003E7400C0D4AD /* UIStackView+Extension.swift in Sources */,
+				2305EFDB280066640079B5F9 /* PlaceholderViewController.swift in Sources */,
 				231ADF8327FC7E4400227998 /* Endpoint.swift in Sources */,
 				231ADF3F27FC776500227998 /* AppDelegate.swift in Sources */,
 				231ADF7E27FC7D4300227998 /* URLRequest+curl.swift in Sources */,
+				23EFD91C2800318B00C0D4AD /* ArtDetailsPresenter.swift in Sources */,
+				2305EFDD28006B100079B5F9 /* ArtDetailsScrollView.swift in Sources */,
+				23EFD92628003E9800C0D4AD /* UIView+Extension.swift in Sources */,
 				231ADF8127FC7E1700227998 /* NetworkError.swift in Sources */,
+				23EFD92228003B7200C0D4AD /* ImageLoader.swift in Sources */,
 				231ADF4127FC776500227998 /* SceneDelegate.swift in Sources */,
 				231ADF7B27FC7B1700227998 /* NetworkService.swift in Sources */,
+				2305EFD9280064CC0079B5F9 /* LoadingView.swift in Sources */,
 				231ADF8527FC7EED00227998 /* Endpoints.swift in Sources */,
+				2305EFDF28006E220079B5F9 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +564,7 @@
 				INFOPLIST_FILE = RijksCollection/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -548,7 +592,7 @@
 				INFOPLIST_FILE = RijksCollection/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

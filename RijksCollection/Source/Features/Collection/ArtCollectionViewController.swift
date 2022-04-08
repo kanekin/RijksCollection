@@ -7,10 +7,12 @@
 
 import UIKit
 
+@MainActor
 protocol ArtCollectionView: AnyObject {
     func update(artObjects: [Model.Collection.ArtObject])
 }
 
+@MainActor
 class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     private let presenter: ArtCollectionPresenter
