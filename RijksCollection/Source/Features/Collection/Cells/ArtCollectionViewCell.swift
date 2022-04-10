@@ -86,5 +86,6 @@ class ArtCollectionViewCell: UICollectionViewCell {
         guard let task = imageLoadingTask else { return }
         Logger.ui.debug("Cancelling image downloading task")
         task.cancel()
+        imageView.image = nil
     }
 }

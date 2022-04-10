@@ -60,8 +60,8 @@ extension Model.Details.ArtObject {
 }
 
 struct RijksImage: Decodable {
-    let guid: String
-    let width: Int
-    let height: Int
-    let url: String
+    let guid: String?
+    let width: Int?
+    let height: Int?
+    let url: String?
 }

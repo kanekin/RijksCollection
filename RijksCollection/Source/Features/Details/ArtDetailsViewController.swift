@@ -95,7 +95,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
 
 extension RijksImage {
     func imageURL(width: Int) -> URL? {
-        var urlString = url
+        guard var urlString = url else { return nil }
         if urlString.contains("=") {
             urlString.append("-")
         } else {
