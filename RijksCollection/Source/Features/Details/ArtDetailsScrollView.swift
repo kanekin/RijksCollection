@@ -127,7 +127,7 @@ class ArtDetailsScrollView: UIView {
         
         // Assign Image
         Task {
-            if let url = artObject?.webImage.imageURL(width: Int(frame.width)) {
+            if let url = artObject?.webImage?.imageURL(width: Int(frame.width)) {
                 do {
                     artImageView.image = try await ImageLoader.image(from: url)
                 } catch {

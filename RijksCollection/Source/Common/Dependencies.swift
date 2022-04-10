@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Dependencies {
     
@@ -21,9 +22,14 @@ class Dependencies {
         return ArtDetailsLoader(networkService: networkService)
     }()
    
-    func makeArtCollectionPresenter() -> ArtCollectionPresenter {
+    @MainActor
+    func makeArtCollectionPresenter(navigationController: UINavigationController) -> ArtCollectionPresenter {
         return .init(
-            loader: artCollectionLoader
+            loader: artCollectionLoader,
+            router: ArtCollectionRouter(
+                navigationController: navigationController,
+                dependencies: self
+            )
         )
     }
     

@@ -107,7 +107,6 @@ class ArtCollectionSubview: UIView {
     }
     
     func updateView(newArtObjects: [Model.Collection.ArtObject]) {
-        print("updating view")
         updateSnapshot(newArtObjects: newArtObjects)
     }
     
@@ -137,7 +136,6 @@ extension ArtCollectionSubview: UICollectionViewDelegate {
         guard let artObject = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
-        // TODO: navigate to the details view
         didSelectItem?(artObject)
     }
     

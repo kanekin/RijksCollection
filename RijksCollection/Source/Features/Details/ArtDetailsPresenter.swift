@@ -50,9 +50,11 @@ class ArtDetailsPresenter {
                     case .unauthenticated:
                         // Not relevant in this project, but useful to show a relevant message for unauthenticated state. Possibly prompt login screen.
                         await view?.updateView(.failure("Failed to load art details"))
-                    case .parsing(error: let error):
+                    case .parsing(let error):
                         // Unrecoverable, but this type of error should be logged remote logging system with a dedicated error message.
-                        Logger.network.error("Pasing error: \(error.localizedDescription)")
+                        #if DEBUG
+                        print(error)
+                        #endif
                         await view?.updateView(.failure("Failed to load art details"))
                     }
                 } else {

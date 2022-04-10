@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
 //        let vc = PlaceholderViewController()
 //        let vc = ArtDetailsViewController(presenter: dependencies.makeArtDetailsPresenter(objectNumber: "SK-C-5"))
-        let vc = ArtCollectionViewController(presenter: dependencies.makeArtCollectionPresenter())
-        window?.rootViewController = vc
+        let navigationController = UINavigationController()
+        let vc = ArtCollectionViewController(presenter: dependencies.makeArtCollectionPresenter(navigationController: navigationController))
+        navigationController.viewControllers = [vc]
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }

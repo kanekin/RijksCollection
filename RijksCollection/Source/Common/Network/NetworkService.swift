@@ -45,7 +45,7 @@ class NetworkService {
             if error.domain == NSURLErrorDomain,
                 error.code == NSURLErrorNotConnectedToInternet {
                 throw NetworkError.noInternet
-            } else if let _ = error as? DecodingError {
+            } else if let error = error as? DecodingError {
                 throw NetworkError.parsing(error: error)
             } else {
                 throw NetworkError.unknown(error: error)

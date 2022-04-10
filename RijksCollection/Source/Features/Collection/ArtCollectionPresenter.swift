@@ -7,15 +7,18 @@
 
 import Foundation
 import os.log
+import UIKit
 
 actor ArtCollectionPresenter {
     
     private weak var view: ArtCollectionView?
     private let loader: ArtCollectionLoading
+    private let router: ArtCollectionRouting
     private var lastPageLoaded = 1
     
-    nonisolated init(loader: ArtCollectionLoading) {
+    nonisolated init(loader: ArtCollectionLoading, router: ArtCollectionRouting) {
         self.loader = loader
+        self.router = router
     }
     
     func attachView(_ view: ArtCollectionView) {
@@ -55,6 +58,10 @@ actor ArtCollectionPresenter {
         
     }
     
+    @MainActor
+    func displayDetailsPage(objectNumber: String) {
+        router.displayDetailsPage(objectNumber: objectNumber)
+    }
 }
 
 protocol ArtCollectionLoading {
@@ -71,5 +78,28 @@ class ArtCollectionLoader: ArtCollectionLoading {
     
     func getCollection(page: Int) async throws -> Model.Collection {
         return try await networkService.load(endpoint: .getCollection(page: page))
+    }
+}
+
+@MainActor
+protocol ArtCollectionRouting {
+    func displayDetailsPage(objectNumber: String)
+}
+
+@MainActor
+class ArtCollectionRouter: ArtCollectionRouting {
+    
+    private let dependencies: Dependencies?
+    private weak var navigationController: UINavigationController?
+    
+    init(navigationController: UINavigationController, dependencies: Dependencies) {
+        self.navigationController = navigationController
+        self.dependencies = dependencies
+    }
+    
+    func displayDetailsPage(objectNumber: String) {
+        guard let presenter = dependencies?.makeArtDetailsPresenter(objectNumber: objectNumber) else { return }
+        let vc = ArtDetailsViewController(presenter: presenter)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

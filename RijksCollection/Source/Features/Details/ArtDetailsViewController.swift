@@ -64,6 +64,7 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         view.addSubview(errorView)
         view.addSubview(loadingView)
         view.addSubview(artDetailsScrollView)

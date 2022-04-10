@@ -24,8 +24,8 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
                     await self?.presenter.load()
                 }
             },
-            didSelectItem: { artObject in
-                // TODO: implement navigation
+            didSelectItem: { [weak self] artObject in
+                self?.presenter.displayDetailsPage(objectNumber: artObject.objectNumber)
             }
         )
         view.translatesAutoresizingMaskIntoConstraints = false
