@@ -22,7 +22,6 @@ actor ArtCollectionPresenter {
     }
     
     func attachView(_ view: ArtCollectionView) {
-        print("view attached")
         self.view = view
     }
     
@@ -98,7 +97,9 @@ class ArtCollectionRouter: ArtCollectionRouting {
     }
     
     func displayDetailsPage(objectNumber: String) {
-        guard let presenter = dependencies?.makeArtDetailsPresenter(objectNumber: objectNumber) else { return }
+        guard let presenter = dependencies?.makeArtDetailsPresenter(objectNumber: objectNumber) else {
+            return
+        }
         let vc = ArtDetailsViewController(presenter: presenter)
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -14,14 +14,16 @@ actor ImageLoader {
         case invalidUrl
     }
     
-    private static var cache: [URL: Status] = [:]
+    static let shared = ImageLoader()
+    
+    private var cache: [URL: Status] = [:]
     
     private enum Status {
         case inProgress(Task<UIImage, Error>)
         case ready(UIImage)
     }
     
-    static func image(from url: URL) async throws -> UIImage {
+    func image(from url: URL) async throws -> UIImage {
         if let status = cache[url] {
             switch status {
             case .inProgress(let task):
@@ -49,7 +51,7 @@ actor ImageLoader {
         }
     }
     
-    private static func downloadImage(from url: URL) async throws -> UIImage {
+    private func downloadImage(from url: URL) async throws -> UIImage {
         Logger.ui.debug("Downloading image for \(url)")
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let image = UIImage(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {

@@ -44,8 +44,7 @@ class ArtCollectionSubview: UIView {
                 withReuseIdentifier: ArtCollectionViewSectionHeader.reuseIdentifier,
                 for: indexPath
             ) as? ArtCollectionViewSectionHeader {
-                print("header callback is called")
-                headerView.headerText = self?.snapshot.sectionIdentifiers.sorted()[indexPath.section]
+                headerView.headerText = self?.snapshot.artists[indexPath.section]
                 return headerView
             } else {
                 fatalError("Cannot create new supplementary")
@@ -61,6 +60,7 @@ class ArtCollectionSubview: UIView {
             heightDimension: .fractionalHeight(1.0)
         )
         let fullItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        fullItem.contentInsets = .init(top: 2.0, leading: 2.0, bottom: 2.0, trailing: 2.0)
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
@@ -124,7 +124,7 @@ class ArtCollectionSubview: UIView {
             let nonDuplicatedArtObjects = newArtObjectsPerArtist[artist]?.filter({
                 !existingItems.contains($0)
             }) ?? []
-            snapshot.appendItems(nonDuplicatedArtObjects, toSection: artist)
+            snapshot.appendItems(nonDuplicatedArtObjects.sorted(by: { $0.title > $1.title }), toSection: artist)
         }
        
         dataSource.apply(snapshot, animatingDifferences: true)

@@ -15,6 +15,7 @@
 		2305EFE3280080630079B5F9 /* ArtCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */; };
 		2305EFE52803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */; };
 		2305EFE7280307980079B5F9 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE6280307980079B5F9 /* UICollectionReusableView+Extension.swift */; };
+		2305EFEC2803487D0079B5F9 /* URL+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFEB2803487D0079B5F9 /* URL+Image.swift */; };
 		231ADF3F27FC776500227998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF3E27FC776500227998 /* AppDelegate.swift */; };
 		231ADF4127FC776500227998 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4027FC776500227998 /* SceneDelegate.swift */; };
 		231ADF4327FC776500227998 /* ArtCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4227FC776500227998 /* ArtCollectionViewController.swift */; };
@@ -64,6 +65,7 @@
 		2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionViewCell.swift; sourceTree = "<group>"; };
 		2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionViewSectionHeader.swift; sourceTree = "<group>"; };
 		2305EFE6280307980079B5F9 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
+		2305EFEB2803487D0079B5F9 /* URL+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Image.swift"; sourceTree = "<group>"; };
 		231ADF3B27FC776500227998 /* RijksCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RijksCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231ADF3E27FC776500227998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		231ADF4027FC776500227998 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2305EFE8280343A70079B5F9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */,
+				2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		231ADF3227FC776500227998 = {
 			isa = PBXGroup;
 			children = (
@@ -181,8 +192,7 @@
 				231ADF4227FC776500227998 /* ArtCollectionViewController.swift */,
 				2305EFE028007A2E0079B5F9 /* ArtCollectionSubview.swift */,
 				231ADF8827FC846F00227998 /* ArtCollectionPresenter.swift */,
-				2305EFE2280080630079B5F9 /* ArtCollectionViewCell.swift */,
-				2305EFE42803067A0079B5F9 /* ArtCollectionViewSectionHeader.swift */,
+				2305EFE8280343A70079B5F9 /* Cells */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -235,6 +245,7 @@
 				23EFD92328003E7400C0D4AD /* UIStackView+Extension.swift */,
 				23EFD92528003E9800C0D4AD /* UIView+Extension.swift */,
 				2305EFE6280307980079B5F9 /* UICollectionReusableView+Extension.swift */,
+				2305EFEB2803487D0079B5F9 /* URL+Image.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,6 +417,7 @@
 				2305EFE3280080630079B5F9 /* ArtCollectionViewCell.swift in Sources */,
 				2305EFD9280064CC0079B5F9 /* LoadingView.swift in Sources */,
 				231ADF8527FC7EED00227998 /* Endpoints.swift in Sources */,
+				2305EFEC2803487D0079B5F9 /* URL+Image.swift in Sources */,
 				2305EFDF28006E220079B5F9 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

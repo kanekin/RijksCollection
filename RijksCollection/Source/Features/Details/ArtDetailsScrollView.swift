@@ -122,19 +122,13 @@ class ArtDetailsScrollView: UIView {
         } ?? [])
         
         makersLabel.text = artObject?.principalMakers.map { $0.name }.joined(separator: ", ")
+        descriptionTitleLabel.isHidden = (artObject?.description == nil)
         descriptionLabel.text = artObject?.description
         
-        
-        // Assign Image
         Task {
-            if let url = artObject?.webImage?.imageURL(width: Int(frame.width)) {
-                do {
-                    artImageView.image = try await ImageLoader.image(from: url)
-                } catch {
-                    artImageView.image = UIImage(systemName: "photo")
-                }
-            } else {
-                artImageView.image = UIImage(systemName: "photo")
+            let image = await artObject?.webImage?.imageURL(width: Int(frame.width))?.fetchImage()
+            await MainActor.run {
+                artImageView.image = image
             }
         }
     }

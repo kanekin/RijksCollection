@@ -20,10 +20,10 @@ struct Model {
 
 extension Model.Collection {
     struct ArtObject: Decodable {
-        let id: String
-        let objectNumber: String
+        let id: String?
+        let objectNumber: String?
         let title: String
-        let hasImage: Bool
+        let hasImage: Bool?
         let webImage: RijksImage?
         let principalOrFirstMaker: String?
     }

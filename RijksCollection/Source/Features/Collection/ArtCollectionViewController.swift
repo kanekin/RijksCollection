@@ -19,13 +19,14 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     private lazy var artCollectionView: ArtCollectionSubview = {
         let view = ArtCollectionSubview(
-            loadMore: { [weak self] in
+            loadMore: {
                 Task { [weak self] in
                     await self?.presenter.load()
                 }
             },
             didSelectItem: { [weak self] artObject in
-                self?.presenter.displayDetailsPage(objectNumber: artObject.objectNumber)
+                guard let objectNumber = artObject.objectNumber else { return }
+                self?.presenter.displayDetailsPage(objectNumber: objectNumber)
             }
         )
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +55,7 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
         super.viewDidLoad()
         view.addSubview(artCollectionView)
         NSLayoutConstraint.activate(layoutConstraints)
+        self.navigationItem.title = NSLocalizedString("Collection", comment: "navigation.title")
         Task {
             await presenter.attachView(self)
             await presenter.load(resetPageCount: true)

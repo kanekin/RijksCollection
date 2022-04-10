@@ -7,14 +7,18 @@
 
 import Foundation
 import UIKit
+import os.log
 
 class ArtCollectionViewCell: UICollectionViewCell {
+    
+    private var imageLoadingTask: Task<Void, Error>?
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        view.tintColor = .white
         return view
     }()
     
@@ -55,6 +59,7 @@ class ArtCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(textStackView)
+        contentView.backgroundColor = .black
         NSLayoutConstraint.activate(layoutConstraints)
     }
     
@@ -66,17 +71,20 @@ class ArtCollectionViewCell: UICollectionViewCell {
         didSet {
             titleLabel.text = artObject?.title
             
-            Task {
-                if let url = artObject?.webImage?.imageURL(width: 200) {
-                    do {
-                        imageView.image = try await ImageLoader.image(from: url)
-                    } catch {
-                        imageView.image = UIImage(systemName: "photo")
-                    }
-                } else {
-                    imageView.image = UIImage(systemName: "photo")
+            imageLoadingTask = Task {
+                let image = await artObject?.webImage?.imageURL(width: Int(frame.width))?.fetchImage()
+                await MainActor.run {
+                    imageView.image = image
                 }
+                imageLoadingTask = nil
             }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        guard let task = imageLoadingTask else { return }
+        Logger.ui.debug("Cancelling image downloading task")
+        task.cancel()
     }
 }

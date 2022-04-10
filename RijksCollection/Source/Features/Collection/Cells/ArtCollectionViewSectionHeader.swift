@@ -37,7 +37,7 @@ class ArtCollectionViewSectionHeader: UICollectionReusableView {
         directionalLayoutMargins = .init(top: 16.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
         addSubview(label)
         NSLayoutConstraint.activate(layoutConstraints)
-        backgroundColor = .secondarySystemBackground
+//        backgroundColor = .secondarySystemBackground
     }
 
     required init?(coder: NSCoder) {

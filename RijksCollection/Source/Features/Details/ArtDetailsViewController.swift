@@ -40,16 +40,16 @@ class ArtDetailsViewController: UIViewController, ArtDetailsView {
         return [
             view.leadingAnchor.constraint(equalTo: errorView.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
-            view.topAnchor.constraint(equalTo: errorView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: errorView.bottomAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: errorView.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: errorView.bottomAnchor),
             view.leadingAnchor.constraint(equalTo: loadingView.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: loadingView.trailingAnchor),
-            view.topAnchor.constraint(equalTo: loadingView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: loadingView.bottomAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: loadingView.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: loadingView.bottomAnchor),
             view.leadingAnchor.constraint(equalTo: artDetailsScrollView.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: artDetailsScrollView.trailingAnchor),
-            view.topAnchor.constraint(equalTo: artDetailsScrollView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: artDetailsScrollView.bottomAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: artDetailsScrollView.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: artDetailsScrollView.bottomAnchor),
         ]
     }()
     
