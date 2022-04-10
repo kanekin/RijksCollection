@@ -44,6 +44,9 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     private lazy var artCollectionView: ArtCollectionSubview = {
         let view = ArtCollectionSubview(
+            load: { [weak self] in
+                await self?.presenter.load(resetPageCount: true)
+            },
             loadMore: {
                 Task { [weak self] in
                     self?.activityIndicatorView.startAnimating()

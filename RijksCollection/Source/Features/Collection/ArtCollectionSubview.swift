@@ -14,6 +14,7 @@ fileprivate typealias Snapshot = NSDiffableDataSourceSnapshot<String, Model.Coll
 class ArtCollectionSubview: UIView {
     
     private var snapshot: Snapshot = .init()
+    private var load: (() async -> ())?
     private var loadMore: (() -> ())?
     private var didSelectItem: ((Model.Collection.ArtObject) -> ())?
     
@@ -23,7 +24,15 @@ class ArtCollectionSubview: UIView {
         collectionView.delegate = self
         collectionView.register(ArtCollectionViewCell.self, forCellWithReuseIdentifier: ArtCollectionViewCell.reuseIdentifier)
         collectionView.register(ArtCollectionViewSectionHeader.self, forSupplementaryViewOfKind: ArtCollectionViewSectionHeader.reuseIdentifier, withReuseIdentifier: ArtCollectionViewSectionHeader.reuseIdentifier)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
         return collectionView
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
     }()
     
     private lazy var dataSource: DataSource = {
@@ -90,8 +99,9 @@ class ArtCollectionSubview: UIView {
         ]
     }()
     
-    convenience init(loadMore: @escaping () -> (), didSelectItem: @escaping (Model.Collection.ArtObject) -> ()) {
+    convenience init(load: @escaping () async -> (), loadMore: @escaping () -> (), didSelectItem: @escaping (Model.Collection.ArtObject) -> ()) {
         self.init(frame: .zero)
+        self.load = load
         self.loadMore = loadMore
         self.didSelectItem = didSelectItem
     }
@@ -106,8 +116,18 @@ class ArtCollectionSubview: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func updateView(newArtObjects: [Model.Collection.ArtObject]) {
         updateSnapshot(newArtObjects: newArtObjects)
+    }
+    
+    @objc private func refresh() {
+        snapshot = Snapshot()
+        dataSource.apply(snapshot, animatingDifferences: true)
+        Task {
+            await load?()
+            refreshControl.endRefreshing()
+        }
     }
     
     private func updateSnapshot(newArtObjects: [Model.Collection.ArtObject]) {
