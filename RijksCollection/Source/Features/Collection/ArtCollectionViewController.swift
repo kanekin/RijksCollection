@@ -10,6 +10,7 @@ import UIKit
 @MainActor
 protocol ArtCollectionView: AnyObject {
     func updateView(_ newArtObjects: [Model.Collection.ArtObject])
+    func displayErrorMessage(_ message: String?)
 }
 
 @MainActor
@@ -17,11 +18,37 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     private let presenter: ArtCollectionPresenter
     
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [errorMessageView, artCollectionView, activityIndicatorView])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.setCustomSpacing(16.0, after: artCollectionView)
+        view.setCustomSpacing(16.0, after: activityIndicatorView)
+        return view
+    }()
+    
+    private lazy var errorMessageView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var errorMessageLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.textColor = .white
+        view.numberOfLines = 0
+        return view
+    }()
+    
     private lazy var artCollectionView: ArtCollectionSubview = {
         let view = ArtCollectionSubview(
             loadMore: {
                 Task { [weak self] in
+                    self?.activityIndicatorView.startAnimating()
                     await self?.presenter.load()
+                    self?.activityIndicatorView.stopAnimating()
                 }
             },
             didSelectItem: { [weak self] artObject in
@@ -33,12 +60,21 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
         return view
     }()
     
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        return view
+    }()
+    
     private lazy var layoutConstraints: [NSLayoutConstraint] = {
         return [
-            view.leadingAnchor.constraint(equalTo: artCollectionView.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: artCollectionView.trailingAnchor),
-            view.topAnchor.constraint(equalTo: artCollectionView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: artCollectionView.bottomAnchor),
+            view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: stackView.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+            errorMessageLabel.topAnchor.constraint(equalTo: errorMessageView.layoutMarginsGuide.topAnchor),
+            errorMessageLabel.bottomAnchor.constraint(equalTo: errorMessageView.layoutMarginsGuide.bottomAnchor),
+            errorMessageLabel.leadingAnchor.constraint(equalTo: errorMessageView.layoutMarginsGuide.leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: errorMessageView.layoutMarginsGuide.trailingAnchor),
         ]
     }()
     
@@ -53,19 +89,25 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(artCollectionView)
+        view.backgroundColor = .systemBackground
+        view.addSubview(stackView)
+        errorMessageView.addSubview(errorMessageLabel)
         NSLayoutConstraint.activate(layoutConstraints)
         self.navigationItem.title = NSLocalizedString("Collection", comment: "navigation.title")
         Task {
             await presenter.attachView(self)
             await presenter.load(resetPageCount: true)
         }
-
     }
 
     func updateView(_ newArtObjects: [Model.Collection.ArtObject]) {
-        print("updatedView")
+        errorMessageView.isHidden = true
         artCollectionView.updateView(newArtObjects: newArtObjects)
+    }
+    
+    func displayErrorMessage(_ message: String?) {
+        errorMessageView.isHidden = message == nil
+        errorMessageLabel.text = message
     }
 }
 

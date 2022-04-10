@@ -32,27 +32,25 @@ actor ArtCollectionPresenter {
             await view?.updateView(collection.artObjects)
             lastPageLoaded = page
         } catch {
-            Logger.network.error("Error on loading art collecion: \(error.localizedDescription)")
-
-//                if let error = error as? NetworkError {
-//                    switch error {
-//                    case .invalidResponse, .custom, .unknown:
-//                        // Unrecoverable errors
-//                        Logger.network.error("Error on loading art collection: \(error.localizedDescription)")
-//                        await view?.updateView(.failure("Failed to load art collection"))
-//                    case .noInternet:
-//                        await view?.updateView(.failure("No Internet. Try again later."))
-//                    case .unauthenticated:
-//                        // Not relevant in this project, but useful to show a relevant message for unauthenticated state. Possibly prompt login screen.
-//                        await view?.updateView(.failure("Failed to load art collection"))
-//                    case .parsing(error: let error):
-//                        // Unrecoverable, but this type of error should be logged remote logging system with a dedicated error message.
-//                        Logger.network.error("Pasing error: \(error.localizedDescription)")
-//                        await view?.updateView(.failure("Failed to load art collection"))
-//                    }
-//                } else {
-//                    Logger.network.error("Error on loading art colleciont: \(error.localizedDescription)")
-//                }
+            if let error = error as? NetworkError {
+                switch error {
+                case .invalidResponse, .custom, .unknown:
+                    // Unrecoverable errors
+                    Logger.network.error("Error on loading art collection: \(error.localizedDescription)")
+                    await view?.displayErrorMessage("Failed to load art collection")
+                case .noInternet:
+                    await view?.displayErrorMessage("No Internet. Try again later.")
+                case .unauthenticated:
+                    // Not relevant in this project, but useful to show a relevant message for unauthenticated state. Possibly prompt login screen.
+                    await view?.displayErrorMessage("Failed to load art collection")
+                case .parsing(error: let error):
+                    // Unrecoverable, but this type of error should be logged remote logging system with a dedicated error message.
+                    Logger.network.error("Pasing error: \(error.localizedDescription)")
+                    await view?.displayErrorMessage("Failed to load art collection")
+                }
+            } else {
+                Logger.network.error("Error on loading art colleciont: \(error.localizedDescription)")
+            }
         }
         
     }

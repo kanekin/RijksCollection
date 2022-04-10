@@ -59,7 +59,7 @@ class ArtCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(textStackView)
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .systemGray
         NSLayoutConstraint.activate(layoutConstraints)
     }
     
