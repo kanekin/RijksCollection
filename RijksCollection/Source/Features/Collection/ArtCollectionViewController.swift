@@ -7,9 +7,11 @@
 
 import UIKit
 
-@MainActor
+
 protocol ArtCollectionView: AnyObject {
+    @MainActor
     func updateView(_ newArtObjects: [Model.Collection.ArtObject])
+    @MainActor
     func displayErrorMessage(_ message: String?)
 }
 
@@ -23,7 +25,6 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.setCustomSpacing(16.0, after: artCollectionView)
-        view.setCustomSpacing(16.0, after: activityIndicatorView)
         return view
     }()
     
@@ -97,8 +98,8 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
         errorMessageView.addSubview(errorMessageLabel)
         NSLayoutConstraint.activate(layoutConstraints)
         self.navigationItem.title = NSLocalizedString("Collection", comment: "navigation.title")
+        presenter.attachView(self)
         Task {
-            await presenter.attachView(self)
             await presenter.load(resetPageCount: true)
         }
     }

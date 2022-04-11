@@ -21,7 +21,7 @@
 		231ADF4327FC776500227998 /* ArtCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF4227FC776500227998 /* ArtCollectionViewController.swift */; };
 		231ADF4827FC776500227998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231ADF4727FC776500227998 /* Assets.xcassets */; };
 		231ADF4B27FC776600227998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231ADF4927FC776600227998 /* LaunchScreen.storyboard */; };
-		231ADF5627FC776600227998 /* RijksCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF5527FC776600227998 /* RijksCollectionTests.swift */; };
+		231ADF5627FC776600227998 /* ArtCollectionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF5527FC776600227998 /* ArtCollectionPresenterTests.swift */; };
 		231ADF7027FC784A00227998 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF6F27FC784A00227998 /* Dependencies.swift */; };
 		231ADF7727FC794B00227998 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF7627FC794B00227998 /* Collection.swift */; };
 		231ADF7927FC7B0300227998 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ADF7827FC7B0300227998 /* ApiConstants.swift */; };
@@ -41,13 +41,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		231ADF5227FC776600227998 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 231ADF3327FC776500227998 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 231ADF3A27FC776500227998;
-			remoteInfo = RijksCollection;
-		};
-		231ADF5C27FC776600227998 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 231ADF3327FC776500227998 /* Project object */;
 			proxyType = 1;
@@ -74,8 +67,7 @@
 		231ADF4A27FC776600227998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231ADF4C27FC776600227998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231ADF5127FC776600227998 /* RijksCollectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksCollectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		231ADF5527FC776600227998 /* RijksCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksCollectionTests.swift; sourceTree = "<group>"; };
-		231ADF5B27FC776600227998 /* RijksCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		231ADF5527FC776600227998 /* ArtCollectionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionPresenterTests.swift; sourceTree = "<group>"; };
 		231ADF6F27FC784A00227998 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		231ADF7627FC794B00227998 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		231ADF7827FC7B0300227998 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
@@ -102,13 +94,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		231ADF4E27FC776600227998 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		231ADF5827FC776600227998 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -150,7 +135,6 @@
 			children = (
 				231ADF3B27FC776500227998 /* RijksCollection.app */,
 				231ADF5127FC776600227998 /* RijksCollectionTests.xctest */,
-				231ADF5B27FC776600227998 /* RijksCollectionUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,7 +153,7 @@
 		231ADF5427FC776600227998 /* RijksCollectionTests */ = {
 			isa = PBXGroup;
 			children = (
-				231ADF5527FC776600227998 /* RijksCollectionTests.swift */,
+				231ADF5527FC776600227998 /* ArtCollectionPresenterTests.swift */,
 			);
 			path = RijksCollectionTests;
 			sourceTree = "<group>";
@@ -300,24 +284,6 @@
 			productReference = 231ADF5127FC776600227998 /* RijksCollectionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		231ADF5A27FC776600227998 /* RijksCollectionUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 231ADF6B27FC776600227998 /* Build configuration list for PBXNativeTarget "RijksCollectionUITests" */;
-			buildPhases = (
-				231ADF5727FC776600227998 /* Sources */,
-				231ADF5827FC776600227998 /* Frameworks */,
-				231ADF5927FC776600227998 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				231ADF5D27FC776600227998 /* PBXTargetDependency */,
-			);
-			name = RijksCollectionUITests;
-			productName = RijksCollectionUITests;
-			productReference = 231ADF5B27FC776600227998 /* RijksCollectionUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,10 +298,6 @@
 						CreatedOnToolsVersion = 13.2.1;
 					};
 					231ADF5027FC776600227998 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 231ADF3A27FC776500227998;
-					};
-					231ADF5A27FC776600227998 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 231ADF3A27FC776500227998;
 					};
@@ -356,7 +318,6 @@
 			targets = (
 				231ADF3A27FC776500227998 /* RijksCollection */,
 				231ADF5027FC776600227998 /* RijksCollectionTests */,
-				231ADF5A27FC776600227998 /* RijksCollectionUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -372,13 +333,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		231ADF4F27FC776600227998 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		231ADF5927FC776600227998 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,14 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				231ADF5627FC776600227998 /* RijksCollectionTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		231ADF5727FC776600227998 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				231ADF5627FC776600227998 /* ArtCollectionPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,11 +391,6 @@
 			isa = PBXTargetDependency;
 			target = 231ADF3A27FC776500227998 /* RijksCollection */;
 			targetProxy = 231ADF5227FC776600227998 /* PBXContainerItemProxy */;
-		};
-		231ADF5D27FC776600227998 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 231ADF3A27FC776500227998 /* RijksCollection */;
-			targetProxy = 231ADF5C27FC776600227998 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -676,42 +618,6 @@
 			};
 			name = Release;
 		};
-		231ADF6C27FC776600227998 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 77XTYTT5VT;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tatsuyakaneko.RijksCollectionUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RijksCollection;
-			};
-			name = Debug;
-		};
-		231ADF6D27FC776600227998 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 77XTYTT5VT;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tatsuyakaneko.RijksCollectionUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RijksCollection;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -738,15 +644,6 @@
 			buildConfigurations = (
 				231ADF6927FC776600227998 /* Debug */,
 				231ADF6A27FC776600227998 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		231ADF6B27FC776600227998 /* Build configuration list for PBXNativeTarget "RijksCollectionUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				231ADF6C27FC776600227998 /* Debug */,
-				231ADF6D27FC776600227998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

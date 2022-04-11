@@ -9,14 +9,19 @@ import Foundation
 import os.log
 import UIKit
 
-actor ArtCollectionPresenter {
+class ArtCollectionPresenter {
     
     private weak var view: ArtCollectionView?
     private let loader: ArtCollectionLoading
     private let router: ArtCollectionRouting
-    private var lastPageLoaded = 1
+    private let pageCounter = PageCounter()
+    var lastPageLoaded: Int {
+        get async {
+            await pageCounter.count
+        }
+    }
     
-    nonisolated init(loader: ArtCollectionLoading, router: ArtCollectionRouting) {
+    init(loader: ArtCollectionLoading, router: ArtCollectionRouting) {
         self.loader = loader
         self.router = router
     }
@@ -26,11 +31,15 @@ actor ArtCollectionPresenter {
     }
     
     func load(resetPageCount: Bool = false) async {
+        if resetPageCount {
+            await pageCounter.reset()
+        } else {
+            await pageCounter.increment()
+        }
+        
         do {
-            let page = resetPageCount ? 1 : lastPageLoaded + 1
-            let collection = try await loader.getCollection(page: page)
+            let collection = try await loader.getCollection(page: pageCounter.count)
             await view?.updateView(collection.artObjects)
-            lastPageLoaded = page
         } catch {
             if let error = error as? NetworkError {
                 switch error {
@@ -61,6 +70,19 @@ actor ArtCollectionPresenter {
     }
 }
 
+actor PageCounter {
+    private static let initialValue = 1
+    var count: Int = PageCounter.initialValue
+    
+    func increment() {
+        count += 1
+    }
+    
+    func reset() {
+        count = PageCounter.initialValue
+    }
+}
+
 protocol ArtCollectionLoading {
     func getCollection(page: Int) async throws -> Model.Collection
 }
@@ -78,12 +100,12 @@ class ArtCollectionLoader: ArtCollectionLoading {
     }
 }
 
-@MainActor
 protocol ArtCollectionRouting {
+    @MainActor
     func displayDetailsPage(objectNumber: String)
 }
 
-@MainActor
+
 class ArtCollectionRouter: ArtCollectionRouting {
     
     private let dependencies: Dependencies?
@@ -94,6 +116,7 @@ class ArtCollectionRouter: ArtCollectionRouting {
         self.dependencies = dependencies
     }
     
+    @MainActor
     func displayDetailsPage(objectNumber: String) {
         guard let presenter = dependencies?.makeArtDetailsPresenter(objectNumber: objectNumber) else {
             return
