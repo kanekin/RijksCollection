@@ -181,7 +181,7 @@ private extension Array where Element == Model.Collection.ArtObject {
     }
 }
 
-extension Snapshot {
+private extension Snapshot {
     var artists: [String] {
         sectionIdentifiers
     }

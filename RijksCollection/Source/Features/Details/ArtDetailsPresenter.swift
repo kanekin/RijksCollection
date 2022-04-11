@@ -72,7 +72,7 @@ protocol ArtDetailsLoading {
 
 class ArtDetailsLoader: ArtDetailsLoading {
     
-    let networkService: NetworkService
+    private let networkService: NetworkService
     
     init(networkService: NetworkService) {
         self.networkService = networkService

@@ -70,7 +70,7 @@ class ArtCollectionPresenter {
     }
 }
 
-actor PageCounter {
+private actor PageCounter {
     private static let initialValue = 1
     var count: Int = PageCounter.initialValue
     
