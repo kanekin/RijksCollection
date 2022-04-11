@@ -82,9 +82,10 @@ class ArtCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        guard let task = imageLoadingTask else { return }
-        Logger.ui.debug("Cancelling image downloading task")
-        task.cancel()
+        if let task = imageLoadingTask {
+            Logger.ui.debug("Cancelling image downloading task")
+            task.cancel()
+        }
         imageView.image = nil
     }
 }
