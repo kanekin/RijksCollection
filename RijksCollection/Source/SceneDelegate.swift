@@ -15,8 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-//        let vc = PlaceholderViewController()
-//        let vc = ArtDetailsViewController(presenter: dependencies.makeArtDetailsPresenter(objectNumber: "SK-C-5"))
         let navigationController = UINavigationController()
         let vc = ArtCollectionViewController(presenter: dependencies.makeArtCollectionPresenter(navigationController: navigationController))
         navigationController.viewControllers = [vc]
@@ -24,4 +22,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
 }
-

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2305EFD9280064CC0079B5F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFD8280064CC0079B5F9 /* LoadingView.swift */; };
-		2305EFDB280066640079B5F9 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */; };
 		2305EFDD28006B100079B5F9 /* ArtDetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */; };
 		2305EFDF28006E220079B5F9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFDE28006E220079B5F9 /* ErrorView.swift */; };
 		2305EFE128007A2E0079B5F9 /* ArtCollectionSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305EFE028007A2E0079B5F9 /* ArtCollectionSubview.swift */; };
@@ -51,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		2305EFD8280064CC0079B5F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		2305EFDC28006B100079B5F9 /* ArtDetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailsScrollView.swift; sourceTree = "<group>"; };
 		2305EFDE28006E220079B5F9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		2305EFE028007A2E0079B5F9 /* ArtCollectionSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionSubview.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				231ADF7227FC786D00227998 /* Features */,
 				231ADF3E27FC776500227998 /* AppDelegate.swift */,
 				231ADF4027FC776500227998 /* SceneDelegate.swift */,
-				2305EFDA280066640079B5F9 /* PlaceholderViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -355,7 +352,6 @@
 				23AA662A27FEDAA500A28F96 /* ArtDetailsViewController.swift in Sources */,
 				231ADF4327FC776500227998 /* ArtCollectionViewController.swift in Sources */,
 				23EFD92428003E7400C0D4AD /* UIStackView+Extension.swift in Sources */,
-				2305EFDB280066640079B5F9 /* PlaceholderViewController.swift in Sources */,
 				231ADF8327FC7E4400227998 /* Endpoint.swift in Sources */,
 				231ADF3F27FC776500227998 /* AppDelegate.swift in Sources */,
 				231ADF7E27FC7D4300227998 /* URLRequest+curl.swift in Sources */,
