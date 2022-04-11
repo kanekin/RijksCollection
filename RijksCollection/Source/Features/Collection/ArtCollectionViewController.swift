@@ -60,7 +60,6 @@ class ArtCollectionViewController: UIViewController, ArtCollectionView {
                 self?.presenter.displayDetailsPage(objectNumber: objectNumber)
             }
         )
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     

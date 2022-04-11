@@ -29,7 +29,6 @@ class LoadingView: UIView {
     
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.startAnimating()
         view.setContentHuggingPriority(.required, for: .vertical)
         return view
@@ -37,7 +36,6 @@ class LoadingView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.text = NSLocalizedString("Loading...", comment: "loading.title")
         view.font = .systemFont(ofSize: 24.0, weight: .semibold)
         view.setContentHuggingPriority(.required, for: .vertical)

@@ -35,7 +35,6 @@ class ArtCollectionViewCell: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .systemFont(ofSize: 16.0, weight: .semibold)
         view.numberOfLines = 0
         view.textColor = .white

@@ -27,7 +27,6 @@ class ArtDetailsScrollView: UIView {
     
     private lazy var artImageView: UIImageView = {
         let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -40,7 +39,6 @@ class ArtDetailsScrollView: UIView {
             descriptionTitleLabel,
             descriptionLabel
         ])
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.spacing = 8.0
         view.directionalLayoutMargins = .init(top: 8.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
@@ -50,7 +48,6 @@ class ArtDetailsScrollView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0
         view.font = .systemFont(ofSize: 36.0, weight: .bold)
         return view
@@ -58,7 +55,6 @@ class ArtDetailsScrollView: UIView {
 
     private lazy var makersLabel: UILabel = {
        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0
         view.font = .systemFont(ofSize: 24.0, weight: .semibold)
         return view
@@ -73,7 +69,6 @@ class ArtDetailsScrollView: UIView {
     
     private lazy var descriptionTitleLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0
         view.font = .systemFont(ofSize: 24.0, weight: .semibold)
         view.text = NSLocalizedString("Description", comment: "details.description.title")
@@ -82,9 +77,7 @@ class ArtDetailsScrollView: UIView {
     
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0
-        
         return view
     }()
     

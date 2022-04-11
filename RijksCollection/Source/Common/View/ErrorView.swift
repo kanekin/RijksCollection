@@ -28,7 +28,6 @@ class ErrorView: UIView {
     
     private lazy var errorImageView: UIImageView = {
         let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.image = UIImage(systemName: "xmark.octagon.fill")
         view.tintColor = .red
         return view
@@ -36,7 +35,6 @@ class ErrorView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .systemFont(ofSize: 24.0, weight: .semibold)
         view.setContentHuggingPriority(.required, for: .vertical)
         return view
